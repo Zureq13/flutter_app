@@ -9,12 +9,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  static List products = [
-    'IPhone 11',
-    'IPhone 12',
-    'IPhone 13',
-  ];
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
