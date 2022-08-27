@@ -1,5 +1,8 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/order.dart';
 
 // ignore: must_be_immutable
 class SecondRoute extends StatelessWidget {
@@ -40,7 +43,7 @@ class SecondRoute extends StatelessWidget {
           ),
           Card(
             child: Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Text('$price\$'),
             ),
           ),
@@ -51,18 +54,27 @@ class SecondRoute extends StatelessWidget {
                 showDialog(
                   context: context,
                   builder: (context) => AlertDialog(
-                    title: Text('Are you sure?'),
+                    title: const Text('Are you sure?'),
                     actions: [
                       CupertinoDialogAction(
                         child: CupertinoButton(
-                          onPressed: () {},
-                          child: Text('No'),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Text('No'),
                         ),
                       ),
                       CupertinoDialogAction(
                         child: CupertinoButton(
-                          onPressed: () {},
-                          child: Text('Yes'),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const OrderPage(),
+                              ),
+                            );
+                          },
+                          child: const Text('Yes'),
                         ),
                       ),
                     ],
