@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/apple_shop.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,35 +6,45 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Shop',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Colors.blue[100],
-      ),
+      debugShowCheckedModeBanner: false,
+      title: "I-Store",
+      theme: ThemeData(scaffoldBackgroundColor: Colors.blueGrey),
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Apple"),
-          centerTitle: true,
+        body: Container(
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Colors.blue,
+              Colors.orange,
+            ],
+          )),
+          child: Column(
+            children: [
+              SafeArea(
+                child: Row(
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.all(40.0),
+                      child: Text(
+                        "Check out",
+                        style: TextStyle(
+                          fontSize: 42,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
-        body: Builder(builder: (context) {
-          return Center(
-            child: CupertinoButton(
-              child: const Text("Enter Apple Shop"),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const View(),
-                  ),
-                );
-              },
-            ),
-          );
-        }),
       ),
     );
   }
