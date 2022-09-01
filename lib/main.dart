@@ -10,19 +10,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "I-Store",
+      title: "Food App",
       theme: ThemeData(scaffoldBackgroundColor: Colors.blueGrey),
       home: Scaffold(
         body: Container(
           decoration: const BoxDecoration(
-              gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Colors.blue,
-              Colors.orange,
-            ],
-          )),
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Colors.blue,
+                Colors.orange,
+              ],
+            ),
+          ),
           child: Column(
             children: [
               SafeArea(
@@ -42,6 +43,25 @@ class MyApp extends StatelessWidget {
                   ],
                 ),
               ),
+              Row(
+                children: [
+                  const Spacer(flex: 4),
+                  Card(
+                    color: Colors.orange[100],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: const SizedBox(
+                      width: 250,
+                      height: 250,
+                      child: Icon(Icons.food_bank_outlined),
+                    ),
+                  ),
+                  const Spacer(
+                    flex: 1,
+                  ),
+                ],
+              )
             ],
           ),
         ),
