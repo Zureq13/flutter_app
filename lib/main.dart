@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Colors.blue,
-                Colors.orange,
+                Colors.transparent,
+                Colors.orangeAccent,
               ],
             ),
           ),
@@ -47,19 +47,31 @@ class MyApp extends StatelessWidget {
                 children: [
                   const Spacer(flex: 4),
                   Card(
-                    color: Colors.orange[100],
+                    color: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15.0),
                     ),
-                    child: const SizedBox(
-                      width: 250,
-                      height: 250,
-                      child: Icon(Icons.food_bank_outlined),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: 250,
+                          height: 250,
+                          child: Padding(
+                            padding: const EdgeInsets.all(25.0),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(15.0),
+                              child: Image.asset('images/food.jpg'),
+                            ),
+                          ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text("Meal of the day"),
+                        ),
+                      ],
                     ),
                   ),
-                  const Spacer(
-                    flex: 1,
-                  ),
+                  const Spacer(flex: 1),
                 ],
               )
             ],
